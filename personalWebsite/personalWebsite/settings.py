@@ -16,6 +16,7 @@ import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+print(BASE_DIR)
 
 # Get logins from env variable
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
@@ -31,9 +32,9 @@ if not (SECRET_KEY and POSTGRESQL_USER and POSTGRESQL_PASSWORD):
         POSTGRESQL_PASSWORD = data.get('POSTGRESQL').get('PASSWORD')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'django-app-dev3.us-east-2.elasticbeanstalk.com', '172.31.34.76', 'murphyyip.info']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'django-app-dev3.us-east-2.elasticbeanstalk.com', '172.31.34.76', 'murphyyip.info', 'www.murphyyip.info']
 
 
 # Application definition
@@ -84,16 +85,14 @@ WSGI_APPLICATION = 'personalWebsite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'ebdb',
         'USER': POSTGRESQL_USER,
         'PASSWORD': POSTGRESQL_PASSWORD,
-        'HOST': 'awseb-e-8wkzi5t33e-stack-awsebrdsdatabase-bu0aeliajsq2.czffkad3dr3v.us-east-2.rds.amazonaws.com',
-        'PORT': '5432'
+        'HOST': 'awseb-e-8wkzi5t33e-stack-awsebrdsdatabase-bogibrz5e8nj.czffkad3dr3v.us-east-2.rds.amazonaws.com',
+        'PORT': '5432',
     }
 }
-
-print(DATABASES)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -129,7 +128,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "var","static")
+STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'), ]
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR , "media")
+
+print(MEDIA_ROOT, MEDIA_URL)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
