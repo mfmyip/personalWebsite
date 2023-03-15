@@ -89,7 +89,15 @@ local_settings.py
 db.sqlite3
 
 secrets.json
+AWS-ACCESS-KEY*
 
 # environments
 env/
 38env/
+
+
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

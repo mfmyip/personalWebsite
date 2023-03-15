@@ -30,7 +30,7 @@ with open( Path('personalWebsite') / 'secrets.json', 'r') as f:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['django-env.eba-qgudiyrj.us-east-2.elasticbeanstalk.com']
 
 
 # Application definition
