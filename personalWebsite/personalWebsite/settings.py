@@ -33,6 +33,7 @@ if not (SECRET_KEY and POSTGRESQL_USER and POSTGRESQL_PASSWORD):
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+LOCAL_DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'django-app-dev3.us-east-2.elasticbeanstalk.com', '172.31.34.76', 'murphyyip.info', 'www.murphyyip.info', '192.168.50.28']
 
@@ -135,6 +136,19 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR,'var',"static")
 STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'), ]
+
+# FOR EMAILS
+if LOCAL_DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+else:
+    EMAIL_BACKEND = 'django_ses.SESBackend'
+    AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+    if (not AWS_ACCESS_KEY_ID) or (not AWS_SECRET_ACCESS_KEY):
+        raise ValueError('AWS KEYS NOT FOUND')
+    AWS_SES_REGION_NAME = 'us-east-2' #(ex: us-east-2)
+    AWS_SES_REGION_ENDPOINT ='email.us-east-2.amazonaws.com' #(ex: email.us-east-2.amazonaws.com)
+
 
 # MEDIA_URL = "/media/"
 # MEDIA_ROOT = os.path.join(BASE_DIR , "media")
