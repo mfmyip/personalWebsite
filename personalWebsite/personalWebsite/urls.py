@@ -24,7 +24,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('projects/', include('projects.urls')),
+    path('contact/', include('contact.urls')),
 ]
-
-if settings.DEBUG:  # new
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

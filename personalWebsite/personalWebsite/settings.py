@@ -34,7 +34,7 @@ if not (SECRET_KEY and POSTGRESQL_USER and POSTGRESQL_PASSWORD):
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'django-app-dev3.us-east-2.elasticbeanstalk.com', '172.31.34.76', 'murphyyip.info', 'www.murphyyip.info']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'django-app-dev3.us-east-2.elasticbeanstalk.com', '172.31.34.76', 'murphyyip.info', 'www.murphyyip.info', '192.168.50.28']
 
 
 # Application definition
@@ -47,7 +47,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'projects',
+    'contact',
+    'crispy_forms',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -129,13 +133,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "var","static")
+STATIC_ROOT = os.path.join(BASE_DIR,'var',"static")
 STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'), ]
 
-MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR , "media")
+# MEDIA_URL = "/media/"
+# MEDIA_ROOT = os.path.join(BASE_DIR , "media")
 
-print(MEDIA_ROOT, MEDIA_URL)
+# print(MEDIA_ROOT, MEDIA_URL)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

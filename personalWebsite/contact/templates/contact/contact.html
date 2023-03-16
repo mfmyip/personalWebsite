@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+
+<body class="text-center">
+
+<div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+    <header class="masthead mb-auto">
+        <div class="inner">
+          <h3 class="masthead-brand">Murphy Yip</h3>
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link" href="{% url 'index' %}">Home</a>
+            <a class="nav-link" href="{% url 'projects:project_index' %}">Projects</a>
+            <a class="nav-link active" href="{% url 'contact:contact' %}">Contact</a>
+          </nav>
+        </div>
+    </header>
+
+    <div class="container-md">
+        <h1 class="cover-heading">Contact Details</h1>
+        <p class="text-break">
+            <b>Email:</b><br>
+            {{ contact.email }} <br>
+            <b>Phone:</b><br>
+            {{ contact.phone }}
+        </p>
+    </div>
+    {% comment %} CONTACT FORM {% endcomment %}
+    <div style="margin:80px">
+      <h1>Contact</h1>
+      <h4>Contact us directly if you have any questions</h4>
+      <p>
+        Please write your name, email address and a message below if you have any questions.
+      </p>
+      <form method="post">
+          {% csrf_token %}
+              {{form.as_p}}
+              <button type="submit">Submit</button>
+          </form>
+      </div>
+
+    <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+        </div>
+    </footer>
+</div>
+
+</body>
+
+{% endblock %}
