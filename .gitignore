@@ -91,9 +91,12 @@ db.sqlite3
 secrets.json
 AWS-ACCESS-KEY*
 
+mysite/
+
 # environments
 env/
 38env/
+eb-virt/
 
 
 

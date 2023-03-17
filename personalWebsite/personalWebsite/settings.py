@@ -32,7 +32,7 @@ if not (SECRET_KEY and POSTGRESQL_USER and POSTGRESQL_PASSWORD):
         POSTGRESQL_PASSWORD = data.get('POSTGRESQL').get('PASSWORD')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 LOCAL_DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'django-app-dev3.us-east-2.elasticbeanstalk.com', '172.31.34.76', 'murphyyip.info', 'www.murphyyip.info', '192.168.50.28']
@@ -133,9 +133,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR,'var',"static")
-STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'), ]
+STATIC_ROOT = BASE_DIR / 'static'
+#STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'static'), ]
 
 # FOR EMAILS
 if LOCAL_DEBUG:

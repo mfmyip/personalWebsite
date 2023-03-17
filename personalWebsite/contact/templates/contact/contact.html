@@ -3,56 +3,47 @@
 {% load crispy_forms_tags %}  
 {% block page_content %}
 
-<body class="text-center">
 
 
-<div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
-    <header class="masthead mb-auto">
-        <div class="inner">
-          <h3 class="masthead-brand">Murphy Yip</h3>
-          <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link" href="{% url 'index' %}">Home</a>
-            <a class="nav-link" href="{% url 'projects:project_index' %}">Projects</a>
-            <a class="nav-link active" href="{% url 'contact:contact' %}">Contact</a>
-          </nav>
-        </div>
-    </header>
 
-    <h4 class="cover-heading">My Contact Details</h4>
-        <p class="text-break">
-            <b>Email:</b><br>
-            {{ contact.email }} <br>
-            <b>Phone:</b><br>
-            {{ contact.phone }}<br>
-        </p>
-        <p>
-          Or feel free to write your name, email address and a message below to contact me directly.
-        </p>
-    <div class="container-fluid bg-light py-3 rounded">
-        {% comment %} CONTACT FORM {% endcomment %}
-        <form method="post" class="contactform">
-          {% csrf_token %}
-            {{form|crispy}}
-              <button class='btn btn-primary' type="submit">Submit</button>          
-      </form>
-      {% if messages %}
-      <ul class="messages">
-          {% for message in messages %}
-          <label  {% if message.tags %} class="{{ message.tags }} justify-content-center" {% endif %}>
-            {{ message }} 
-          </label>
-          {% endfor %}
-      </ul>
-      {% endif %}
-    </div>
-      
-    <footer class="mastfoot mt-auto">
-        <div class="inner">
-          <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-        </div>
-    </footer>
+<header class="masthead mb-auto">
+  <div class="inner">
+    <h3 class="masthead-brand">Murphy Yip</h3>
+    <nav class="nav nav-masthead justify-content-center">
+      <a class="nav-link" href="{% url 'index' %}">Home</a>
+      <a class="nav-link" href="{% url 'projects:project_index' %}">Projects</a>
+      <a class="nav-link active" href="{% url 'contact:contact' %}">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<h4 class="cover-heading">My Contact Details</h4>
+<p class="text-break">
+    <b>Email:</b><br>
+    {{ contact.email }} <br>
+    <b>Phone:</b><br>
+    {{ contact.phone }}<br>
+</p>
+<p>
+  Or feel free to write your name, email address and a message below to contact me directly.
+</p>
+
+<div class="container-fluid bg-light py-3 rounded mb-3">
+    {% comment %} CONTACT FORM {% endcomment %}
+    <form method="post" class="contactform">
+      {% csrf_token %}
+        {{form|crispy}}
+          <button class='btn btn-primary' type="submit">Submit</button>          
+  </form>
+  {% if messages %}
+  <ul class="messages">
+      {% for message in messages %}
+      <label  {% if message.tags %} class="{{ message.tags }} justify-content-center" {% endif %}>
+        {{ message }} 
+      </label>
+      {% endfor %}
+  </ul>
+  {% endif %}
 </div>
-
-</body>
 
 {% endblock %}

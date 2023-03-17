@@ -2,51 +2,32 @@
 {% load static %}
 {% block page_content %}
 
-<body class="text-center">
-
-<div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
-    <header class="masthead mb-auto">
-        <div class="inner">
-          <h3 class="masthead-brand">Murphy Yip</h3>
-          <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link active" href="{% url 'index' %}">Home</a>
-            <a class="nav-link" href="{% url 'projects:project_index' %}">Projects</a>
-            <a class="nav-link" href="{% url 'contact:contact' %}">Contact</a>
-          </nav>
-        </div>
-    </header>
-
-    <div class="container-lg">
-        <div class="row">
-            <div class="col-md ">
-                <h1 class="cover-heading">Hello!</h1>
-                <p class="lead">I am a passionate developer. My aim is to utilise my expertise in software development and data science to deliver innovative solutions that drive
-                    business success. I am passionate about using technology to solve real-world problems and I am eager to bring my
-                    unique perspective and problem-solving skills to a team that values collaboration and continuous improvement.</p>
-                <a href="{% static 'pdf/Resume.pdf' %}" class="btn btn-lg btn-secondary">My Resume</a>
-                <a href="" class="btn btn-lg btn-secondary">GitHub</a>
-                
-            </div>
-            <div class="card bg-light mb-3">
-                <img src="{% static 'img/REPLACE_PHOTO.png' %}" class="img-fluid" alt="...">
-            </div>
-        </div>      
+<header class="masthead mb-auto">
+    <div class="inner">
+      <h3 class="masthead-brand">Murphy Yip</h3>
+      <nav class="nav nav-masthead justify-content-center">
+        <a class="nav-link active" href="{% url 'index' %}">Home</a>
+        <a class="nav-link" href="{% url 'projects:project_index' %}">Projects</a>
+        <a class="nav-link" href="{% url 'contact:contact' %}">Contact</a>
+      </nav>
     </div>
+</header>
 
-
-    <main role="main" class="inner cover">
-        
-    </main>
-
-      <footer class="mastfoot mt-auto">
-        <div class="inner">
-          <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+<div class="container-lg">
+    <div class="row">
+        <div class="col-md ">
+            <h1 class="cover-heading">Hello!</h1>
+            <p class="lead">I am a passionate developer. My aim is to utilise my expertise in software development and data science to deliver innovative solutions that drive
+                business success. I am passionate about using technology to solve real-world problems and I am eager to bring my
+                unique perspective and problem-solving skills to a team that values collaboration and continuous improvement.</p>
+            <a href="https://drive.google.com/file/d/1qeiXbe2TTb3pxplTXD6_03JxNAoY4NRG/view?usp=sharing" class="btn btn-lg btn-secondary">My Resume</a>
+            <a href="https://github.com/mfmyip" class="btn btn-lg btn-secondary">GitHub</a>
+            
         </div>
-      </footer>
+        <div class="card bg-light mb-3">
+            <img src="{% static 'img/REPLACE_PHOTO.png' %}" class="img-fluid" alt="...">
+        </div>
+    </div>      
 </div>
-
-
-
-</body>
-
+  
 {% endblock %}
