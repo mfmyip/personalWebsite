@@ -64,8 +64,9 @@ body {
 .card {
   color: black;
   text-shadow: none; /* Prevent inheritance from `body` */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: none;
   margin-bottom: 10px;
+  border: none;
 }
 
 label,
@@ -73,6 +74,10 @@ label,
   color: black;
   text-shadow: none;
   margin-bottom: 10px;
+}
+
+.img-fluid {
+  max-height: 600px;
 }
 
 

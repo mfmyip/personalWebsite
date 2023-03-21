@@ -17,6 +17,7 @@ a:hover {
   text-shadow: none; /* Prevent inheritance from `body` */
   background-color: #fff;
   border: .05rem solid #fff;
+  margin-bottom: 10px;
 }
 
 .btn-primary,
@@ -26,6 +27,7 @@ a:hover {
   text-shadow: none; /* Prevent inheritance from `body` */
   background-color: black;
   border: .05rem solid #333;
+  margin-bottom: 10px;
 }
 
 /*
@@ -52,17 +54,30 @@ body {
 
 .cover-container {
   max-width: 80em;
+  margin-bottom: 10px;
 }
+
+.container {
+  margin-bottom: 10px;
+}
+
 .card {
   color: black;
   text-shadow: none; /* Prevent inheritance from `body` */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: none;
+  margin-bottom: 10px;
+  border: none;
 }
 
 label,
 .contactform {
   color: black;
   text-shadow: none;
+  margin-bottom: 10px;
+}
+
+.img-fluid {
+  max-height: 600px;
 }
 
 
@@ -83,6 +98,7 @@ label,
   color: rgba(255, 255, 255, .5);
   background-color: transparent;
   border-bottom: .25rem solid transparent;
+  margin-bottom: 10px;
 }
 
 .nav-masthead .nav-link:hover,

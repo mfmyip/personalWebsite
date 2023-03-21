@@ -22,9 +22,9 @@
                   <div class="card-body d-flex flex-column">
                       <h5 class="cover-head mt-auto">{{ project.title }}</h5>
                       <p class="card-text mt-auto">{{ project.description }}</p>
-                      <a href="{% url 'projects:project_detail' project.pk %}"
+                      <a href="{{ project.repo_link }}"
                           class="btn btn-primary mt-auto">
-                          Read More
+                          Github
                       </a>
                   </div>
               </div>
